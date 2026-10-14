@@ -1,69 +1,133 @@
 import Image from "next/image";
+import Link from "next/link";
+import Hero from "@/components/Hero";
+import TestDriveForm from "@/components/TestDriveForm";
+import Stats from "@/components/Stats";
+import Cars from "@/components/Cars";
+import Testimonials from "@/components/Testimonials";
+import CtaBand from "@/components/CtaBand";
+import { TECH, SHOWROOM, DELIVERY, GALLERY } from "@/data/home";
+import { POSTS } from "@/data/news";
+import { SITE } from "@/data/site";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="v2">
+      <Hero />
+      <TestDriveForm />
+
+      <section className="v2-sec v2-white">
+        <div className="wrap">
+          <header className="v2-head">
+            <h2>Công nghệ năng lượng mới của BYD</h2>
+            <p>Ba nền tảng có mặt trên mọi mẫu xe tại đại lý: pin Blade an toàn, hệ hybrid sạc ngoài DM-i và khoang lái thông minh cập nhật từ xa.</p>
+          </header>
+          <div className="v2-tech">
+            {TECH.map((t) => (
+              <figure key={t.t}>
+                <Image src={t.img} alt={t.t} width={800} height={600} sizes="(max-width:800px) 100vw, 33vw" />
+                <figcaption><b>{t.t}</b><span>{t.d}</span></figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <Stats />
+      <Cars />
+
+      <section className="v2-banner">
+        <Image src="/images/fb/036.jpg" alt="" fill sizes="100vw" />
+        <div className="wrap">
+          <h2>Lái thử trên chính cung đường bạn đi mỗi ngày</h2>
+          <p>Đặt lịch, xe được đưa đến tận nhà hoặc cơ quan trong nội thành Pleiku. Tư vấn viên đi cùng để bạn thử đủ chế độ điện, hybrid và hỗ trợ lái.</p>
+          <Link className="obtn obtn-light" href="/lai-thu">Đăng ký lái thử</Link>
         </div>
-      </main>
+      </section>
+
+      <section className="v2-sec v2-white">
+        <div className="wrap">
+          <div className="v2-dealer">
+            <div>
+              <h2 className="v2-h">Đại lý BYD tại Gia Lai</h2>
+              <p>BYD Thuận Minh Gia Lai phân phối trọn bộ dòng xe điện và hybrid DM-i của BYD cho khách hàng Tây Nguyên. Showroom, xưởng dịch vụ và bãi lái thử đặt tại 662A Lê Duẩn, Pleiku. Lái thử tận nơi, báo giá trong ngày, hỗ trợ trả góp và bảo dưỡng chính hãng.</p>
+              <Link className="obtn" href="/gioi-thieu">Về đại lý</Link>
+            </div>
+            <Image className="v2-dealer-img" src="/images/fb/076.jpg" alt="Tư vấn viên giới thiệu xe tại showroom BYD Thuận Minh" width={1200} height={800} sizes="(max-width:900px) 100vw, 55vw" />
+          </div>
+          <div className="v2-pair">
+            {SHOWROOM.map((s) => (
+              <figure key={s.img}><Image src={s.img} alt={s.cap} width={1000} height={760} sizes="(max-width:800px) 100vw, 50vw" /><figcaption>{s.cap}</figcaption></figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="v2-sec v2-grey">
+        <div className="wrap">
+          <header className="v2-head">
+            <h2>Khoảnh khắc bàn giao xe</h2>
+            <p>Mỗi tuần, thêm những gia đình và doanh nghiệp ở Gia Lai nhận xe tại Thuận Minh.</p>
+          </header>
+          <div className="v2-four">
+            {DELIVERY.map((d) => (
+              <figure key={d.img}><Image src={d.img} alt={d.cap} width={600} height={600} sizes="(max-width:700px) 50vw, 25vw" /><figcaption>{d.cap}</figcaption></figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Testimonials />
+
+      <section className="v2-sec v2-white" id="thu-vien">
+        <div className="wrap">
+          <div className="v2-row-head">
+            <h2 className="v2-h">Thư viện hình ảnh</h2>
+            <a className="obtn" href={SITE.facebook} target="_blank" rel="noopener">Xem thêm trên Facebook</a>
+          </div>
+          <div className="v2-gallery">
+            {GALLERY.map((g) => (
+              <div key={g.img + g.alt} className={g.size ?? ""}><Image src={g.img} alt={g.alt} fill sizes="(max-width:700px) 50vw, 25vw" /></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="v2-sec v2-grey">
+        <div className="wrap">
+          <div className="v2-row-head">
+            <h2 className="v2-h">Tin tức mới nhất</h2>
+            <Link className="obtn" href="/tin-tuc">Xem thêm tin tức</Link>
+          </div>
+          <div className="v2-news">
+            {POSTS.map((p) => (
+              <Link key={p.slug} href={`/tin-tuc#${p.slug}`} className="v2-post">
+                <Image src={p.img} alt="" width={800} height={450} sizes="(max-width:800px) 100vw, 33vw" />
+                <div>
+                  <time dateTime={p.date}>{p.d}</time>
+                  <h3>{p.t}</h3>
+                  <span className="arrow" aria-hidden>→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CtaBand />
+
+      <section className="v2-sec v2-grey v2-service">
+        <div className="wrap">
+          <header className="v2-head">
+            <h2>Dịch vụ hậu mãi tại Pleiku</h2>
+            <p>Xưởng dịch vụ đặt ngay tại đại lý: bảo dưỡng định kỳ, sửa chữa, phụ tùng chính hãng, tư vấn lắp sạc tại nhà và hỗ trợ bảo hành theo chính sách BYD Việt Nam.</p>
+          </header>
+          <div className="v2-btns">
+            <Link className="obtn" href="/lai-thu">Đăng ký lái thử</Link>
+            <a className="obtn" href={SITE.phoneTel}>Gọi {SITE.phoneDisplay}</a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

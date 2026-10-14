@@ -1,0 +1,135 @@
+/* ================= Trang con ================= */
+.page-hero{position:relative;background:var(--black);color:#fff;overflow:hidden;isolation:isolate;padding:44px 0 72px}
+.page-hero::before{content:"";position:absolute;right:-8%;bottom:-40px;width:58%;height:90px;background:var(--red);transform:skewX(-28deg);z-index:-1}
+.page-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 90% at 15% 20%,rgba(228,0,43,.2),transparent 70%);z-index:-1}
+.page-hero h1{font-size:clamp(32px,4.4vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-top:18px;max-width:18ch}
+.page-hero p{margin-top:14px;color:rgba(255,255,255,.72);font-size:17px;max-width:60ch}
+.page-hero h1,.page-hero p,.page-hero .crumbs{animation:hero-in .8s cubic-bezier(.2,.7,.2,1) both}
+.page-hero h1{animation-delay:.1s}.page-hero p{animation-delay:.2s}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;font-size:13.5px;color:rgba(255,255,255,.6)}
+.crumbs li+li::before{content:"/";margin-right:6px;opacity:.5}
+.crumbs a:hover{color:#fff}
+.crumbs [aria-current]{color:#fff}
+
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.about-img img{width:100%;height:auto;border-radius:22px 22px 22px 90px;object-fit:cover;aspect-ratio:4/3}
+.about-copy h2{font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.18}
+.about-copy p{margin-top:14px;color:var(--text-muted);max-width:56ch}
+@media (max-width:900px){.about{grid-template-columns:1fr;gap:28px}}
+
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.steps li{position:relative;padding:24px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.steps li:not(:last-child)::after{content:"";position:absolute;top:44px;right:-21px;width:22px;height:2px;background:var(--red)}
+.steps .n{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;font-weight:800}
+.steps h4{margin-top:16px;font-size:17px;font-weight:700}
+.steps p{margin-top:6px;color:var(--text-muted);font-size:14.5px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}.steps li::after{display:none}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+.map-embed{padding:56px 0 0}
+.map-embed iframe{display:block;width:100%;height:420px;border:0;border-radius:var(--radius);background:var(--mist)}
+
+
+/* ================= Chi tiết xe ================= */
+.car-hero{position:relative;background:var(--black);color:#fff;overflow:hidden;isolation:isolate;padding:36px 0 0}
+.car-hero::before{content:"";position:absolute;left:-10%;bottom:110px;width:75%;height:120px;background:var(--red);transform:skewX(-28deg);z-index:-1;animation:track-in 1.1s cubic-bezier(.2,.7,.2,1) both}
+.car-hero-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:32px;align-items:center;padding:28px 0 40px}
+.car-hero-copy .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:6px 12px 6px 8px;border-radius:999px}
+.car-hero-copy .tag i{width:8px;height:8px;border-radius:50%;background:var(--red)}
+.car-hero h1{font-size:clamp(38px,5.4vw,68px);font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:18px}
+.car-hero .type{margin-top:12px;color:rgba(255,255,255,.7);font-size:17px}
+.car-hero .car-price{margin-top:22px;font-size:30px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.car-hero .car-price small{display:block;font-size:13px;font-weight:500;color:rgba(255,255,255,.55);letter-spacing:0}
+.car-hero-copy>*{animation:hero-in .8s cubic-bezier(.2,.7,.2,1) both}
+.car-hero-copy>*:nth-child(2){animation-delay:.08s}.car-hero-copy>*:nth-child(3){animation-delay:.16s}.car-hero-copy>*:nth-child(4){animation-delay:.24s}.car-hero-copy>*:nth-child(5){animation-delay:.32s}
+.car-hero-img img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:22px 22px 22px 110px;animation:drive-in 1.3s cubic-bezier(.65,0,.15,1) .15s both}
+.car-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.12)}
+.car-stats div{padding:22px 20px 26px;border-right:1px solid rgba(255,255,255,.12)}
+.car-stats div:last-child{border-right:0}
+.car-stats dt{font-size:13px;color:rgba(255,255,255,.55)}
+.car-stats dd{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
+.car-stats dd.sm{font-size:18px;padding-top:8px}
+.car-stats dd small{font-size:14px;font-weight:600;margin-left:4px;color:rgba(255,255,255,.6)}
+@keyframes drive-in{from{clip-path:inset(0 100% 0 0 round 22px);transform:translateX(-6%) scale(1.04)}to{clip-path:inset(0 0 0 0 round 0);transform:none}}
+@keyframes track-in{from{transform:skewX(-28deg) translateX(-60%);opacity:0}to{transform:skewX(-28deg);opacity:1}}
+@media (max-width:900px){.car-hero-grid{grid-template-columns:1fr}.car-stats{grid-template-columns:1fr 1fr}.car-stats div:nth-child(2){border-right:0}.car-stats div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}.car-hero::before{bottom:200px}}
+
+.detail-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:start}
+.detail-h{font-size:clamp(24px,2.6vw,30px);font-weight:800;letter-spacing:-.02em}
+.detail-h:not(:first-child){margin-top:52px}
+.detail-spec{margin-top:16px}
+.note{margin-top:12px;font-size:13.5px;color:var(--text-muted)}
+.tech-list{list-style:none;display:grid;gap:18px;margin-top:20px}
+.tech-list li{display:grid;grid-template-columns:28px 1fr;gap:14px}
+.tech-list svg{width:26px;height:26px;color:var(--red)}
+.tech-list b{font-size:17px}
+.tech-list p{color:var(--text-muted);margin-top:2px;max-width:60ch}
+.buy-card{position:sticky;top:96px;padding:28px;border-radius:var(--radius);background:var(--black);color:#fff}
+.buy-card h3{font-size:18px;font-weight:700}
+.buy-price{font-size:32px;font-weight:800;color:var(--red);letter-spacing:-.02em;margin-top:6px}
+.buy-pay{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px;color:rgba(255,255,255,.75)}
+.buy-pay b{color:#fff}
+.buy-pay small{display:block;margin-top:4px;font-size:12.5px;color:rgba(255,255,255,.5)}
+.buy-actions{display:grid;gap:10px;margin-top:22px}
+.buy-card .btn-outline{color:#fff;border-color:rgba(255,255,255,.22)}
+.buy-card .btn-outline:hover{border-color:#fff;color:#fff}
+@media (max-width:900px){.detail-grid{grid-template-columns:1fr}.buy-card{position:static}}
+.car-card .img{display:block}
+
+/* ================= Chuyển động ================= */
+
+/* Hiện dần khi cuộn tới (chỉ khi JS đã bật class .motion) */
+.motion .rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform 1.1s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.motion .rv.in{opacity:1;transform:none}
+.motion .car-card.rv .img img,.motion .n-card.rv img{transform:scale(1.12);transition:transform 1.6s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.motion .car-card.rv.in .img img,.motion .n-card.rv.in img{transform:none}
+
+/* Chuyển giữa section: khối tối/đỏ mở rộng từ thẻ bo góc ra toàn chiều ngang khi cuộn tới */
+@supports (animation-timeline: view()){
+  .motion .section.dark,.motion .compare,.motion .cta-band,.motion .stats{
+    animation:sec-open linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+  .motion .hero-visual .car,.motion .tech-visual img{animation:parallax linear both;animation-timeline:view();animation-range:cover}
+}
+@keyframes sec-open{from{clip-path:inset(0 6% round 40px);transform:translateY(60px)}to{clip-path:inset(0 0 round 0);transform:none}}
+@keyframes parallax{from{transform:translateY(-4%) scale(1.06)}to{transform:translateY(4%) scale(1.06)}}
+
+@media (prefers-reduced-motion:reduce){
+  .page-hero h1,.page-hero p,.page-hero .crumbs,.car-hero-copy>*,.car-hero-img img,.car-hero::before{animation:none}
+}
+
+/* Form lái thử: chỉ chồng lên khối tối phía trên khi đi sau hero */
+.section + .book{margin-top:0;padding-bottom:88px}
+.page-hero:has(+ .book){padding-bottom:150px}
+
+/* Danh mục xe không giá: link báo giá từng dòng */
+.row a.red{font-weight:700;white-space:nowrap;color:#FF4D6D}
+.row a.red:hover{text-decoration:underline}
+.row span a:hover{color:#fff;text-decoration:underline}
+.car-actions{margin-top:auto;padding-top:14px}
+
+/* Ảnh vuông góc, không bo (theo yêu cầu khách) */
+img,.hero-visual .car,.tech-visual img,.about-img img,.car-hero-img img,.cta-img,.map-card,.m-hero,.map-embed iframe{border-radius:0 !important}
+.car-card,.n-card{border-radius:0}
+@keyframes drive-in{from{clip-path:inset(0 100% 0 0);transform:translateX(-6%) scale(1.04)}to{clip-path:inset(0);transform:none}}
+
+/* ================= Tin tức dạng khối kể chuyện ================= */
+.story{padding:96px 0;text-align:center}
+.story .wrap{display:flex;flex-direction:column;align-items:center}
+.story-dark{background:radial-gradient(70% 60% at 50% 0%,#2a2a2f 0%,var(--black) 70%);color:#fff}
+.story-light{background:var(--bg);color:var(--text)}
+.story time{font-size:14px;font-weight:600;color:var(--red)}
+.story-dark time{color:#FF4D6D}
+.story h1,.story h2{font-size:clamp(28px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.15;max-width:22ch;margin-top:10px}
+.story h2 a:hover{color:var(--red)}
+.story .wrap>p{margin-top:16px;max-width:62ch;font-size:17px;color:var(--text-muted)}
+.story-dark .wrap>p{color:rgba(255,255,255,.7)}
+.story-img{display:block;width:min(720px,100%);margin:44px 0 36px}
+.story-img img{width:100%;height:auto}
+.story-intro{padding:72px 0 88px}
+.story-intro .crumbs{margin-bottom:28px}
+.story-intro .crumbs ol{justify-content:center}
+.story-intro h1{font-size:clamp(32px,4.6vw,56px)}
+.story-intro .story-img{margin-bottom:0}
+.story-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:32px}
+@media (max-width:640px){.story{padding:64px 0}}
+.story .wrap>p+p{margin-top:10px}
