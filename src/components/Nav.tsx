@@ -7,8 +7,8 @@ import { SITE } from "@/data/site";
 import { Phone, Menu, Close } from "./Icons";
 
 const LINKS = [
-  ["/", "Trang chủ"], ["/dong-xe", "Sản phẩm"], ["/dich-vu", "Dịch vụ hậu mãi"], ["/gioi-thieu", "Giới thiệu"], ["/tin-tuc", "Tin tức"],
-  ["/#thu-vien", "Thư viện hình ảnh"], ["/lai-thu", "Đăng ký lái thử"], ["/lien-he", "Liên hệ"],
+  ["/", "Trang chủ"], ["/gioi-thieu", "Giới thiệu"], ["/dong-xe", "Sản phẩm"], ["/so-sanh", "So sánh"],
+  ["/tin-tuc", "Tin tức"], ["/lai-thu", "Đăng ký lái thử"],
 ];
 
 export default function Nav() {

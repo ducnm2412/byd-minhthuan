@@ -80,41 +80,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 @media (max-width:640px){.nav-right .btn{display:none}.hotline{display:flex}}
 
-/* ---------- Hero ---------- */
-.hero{position:relative;background:var(--black);color:#fff;overflow:hidden;isolation:isolate}
-.hero::before{ /* red slanted track */
-  content:"";position:absolute;inset:auto -10% -60px 30%;height:260px;
-  background:linear-gradient(100deg,var(--red) 0%,var(--red-deep) 100%);
-  transform:skewY(-7deg);transform-origin:left bottom;z-index:0;opacity:.95;
-}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 20% 30%,rgba(228,0,43,.18),transparent 70%);z-index:0;pointer-events:none}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:32px;padding:72px 0 150px;min-height:560px}
-.hero-copy .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:6px 12px 6px 8px;border-radius:999px}
-.hero-copy .tag i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(228,0,43,.25)}
-.hero h1{font-size:clamp(36px,5vw,58px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-top:22px;max-width:14ch}
-.hero p.lead{margin-top:18px;color:rgba(255,255,255,.72);font-size:17px;max-width:46ch}
-.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
-.hero-visual{position:relative;display:flex;justify-content:flex-end}
-.hero-visual .car{width:min(620px,100%);aspect-ratio:4/3;object-fit:cover;object-position:center;border-radius:22px 22px 22px 90px;
-  -webkit-mask-image:radial-gradient(120% 100% at 60% 45%,#000 55%,transparent 100%);mask-image:radial-gradient(120% 100% at 60% 45%,#000 55%,transparent 100%);
-  filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
-.spec-strip{position:absolute;left:0;bottom:-10px;display:flex;background:rgba(15,15,16,.88);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
-.spec-strip div{padding:12px 18px;border-right:1px solid rgba(255,255,255,.1)}
-.spec-strip div:last-child{border-right:0}
-.spec-strip b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1}
-.spec-strip small{display:block;color:rgba(255,255,255,.6);font-size:12px;margin-top:4px}
+/* Hiệu ứng vào dùng chung */
 @keyframes hero-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.hero-copy>*{animation:hero-in .7s cubic-bezier(.2,.7,.2,1) both}
-.hero-copy>*:nth-child(2){animation-delay:.08s}.hero-copy>*:nth-child(3){animation-delay:.16s}.hero-copy>*:nth-child(4){animation-delay:.24s}
-.hero-visual{animation:hero-in .9s .2s cubic-bezier(.2,.7,.2,1) both}
-@media (prefers-reduced-motion:reduce){.hero-copy>*,.hero-visual{animation:none}}
-@media (max-width:900px){
-  .hero .wrap{grid-template-columns:1fr;padding:48px 0 150px;min-height:0}
-  .hero-visual{justify-content:center;margin-top:8px}
-  .hero-visual .car{border-radius:22px}
-  .spec-strip{position:static;margin-top:16px;justify-content:center;flex-wrap:wrap}
-  .hero::before{inset:auto -20% -30px 0;height:200px}
-}
 
 /* ---------- Booking card overlapping ---------- */
 .book{position:relative;z-index:2;margin-top:-108px}
@@ -255,17 +222,6 @@ input[type=range]{width:100%;accent-color:var(--red)}
 .t-card .who small{color:var(--text-muted);font-size:13px}
 @media (max-width:900px){.testi{grid-template-columns:1fr}}
 
-/* ---------- News ---------- */
-.news{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.n-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.n-card img{aspect-ratio:16/9;object-fit:cover;width:100%}
-.n-body{padding:18px 20px 20px}
-.n-body time{font-size:13px;color:var(--text-muted)}
-.n-body h4{font-size:17px;font-weight:700;margin-top:6px;line-height:1.35}
-.n-body p{font-size:14px;color:var(--text-muted);margin-top:8px}
-.n-body a.more{display:inline-block;margin-top:12px;color:var(--red);font-weight:600;font-size:14px}
-.n-tag{display:inline-block;background:var(--red-soft);color:var(--red);font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;margin-right:8px}
-@media (max-width:900px){.news{grid-template-columns:1fr}}
 
 /* ---------- CTA band ---------- */
 .cta-band{background:var(--red);color:#fff;overflow:hidden}
@@ -357,5 +313,4 @@ footer{background:var(--black);color:#fff;padding:64px 0 0}
 .hidden{display:none !important}
 
 /* next/image */
-.hero-visual .car,.tech-visual img,.car-card .img img,.m-hero img,.n-card img{height:100%}
 .tech-visual img{height:auto}

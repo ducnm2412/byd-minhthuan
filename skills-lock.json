@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "image-to-3d-pipeline": {
+      "source": "guia-matthieu/clawfu-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ai-design/image-to-3d-pipeline/SKILL.md",
+      "computedHash": "2c157fa4a9eef7b19e555d60e7408f8adcd1a13522489d8a5f7aa4129627a7ec"
+    },
     "image-to-ui": {
       "source": "uizze/uizze",
       "sourceType": "github",

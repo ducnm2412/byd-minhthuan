@@ -81,14 +81,14 @@
 /* Hiện dần khi cuộn tới (chỉ khi JS đã bật class .motion) */
 .motion .rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform 1.1s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
 .motion .rv.in{opacity:1;transform:none}
-.motion .car-card.rv .img img,.motion .n-card.rv img{transform:scale(1.12);transition:transform 1.6s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
-.motion .car-card.rv.in .img img,.motion .n-card.rv.in img{transform:none}
+.motion .car-card.rv .img img {transform:scale(1.12);transition:transform 1.6s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.motion .car-card.rv.in .img img {transform:none}
 
 /* Chuyển giữa section: khối tối/đỏ mở rộng từ thẻ bo góc ra toàn chiều ngang khi cuộn tới */
 @supports (animation-timeline: view()){
   .motion .section.dark,.motion .compare,.motion .cta-band,.motion .stats{
     animation:sec-open linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
-  .motion .hero-visual .car,.motion .tech-visual img{animation:parallax linear both;animation-timeline:view();animation-range:cover}
+  .motion .tech-visual img{animation:parallax linear both;animation-timeline:view();animation-range:cover}
 }
 @keyframes sec-open{from{clip-path:inset(0 6% round 40px);transform:translateY(60px)}to{clip-path:inset(0 0 round 0);transform:none}}
 @keyframes parallax{from{transform:translateY(-4%) scale(1.06)}to{transform:translateY(4%) scale(1.06)}}
@@ -108,8 +108,8 @@
 .car-actions{margin-top:auto;padding-top:14px}
 
 /* Ảnh vuông góc, không bo (theo yêu cầu khách) */
-img,.hero-visual .car,.tech-visual img,.about-img img,.car-hero-img img,.cta-img,.map-card,.m-hero,.map-embed iframe{border-radius:0 !important}
-.car-card,.n-card{border-radius:0}
+img,.tech-visual img,.about-img img,.car-hero-img img,.cta-img,.map-card,.m-hero,.map-embed iframe{border-radius:0 !important}
+.car-card{border-radius:0}
 @keyframes drive-in{from{clip-path:inset(0 100% 0 0);transform:translateX(-6%) scale(1.04)}to{clip-path:inset(0);transform:none}}
 
 /* ================= Tin tức dạng khối kể chuyện ================= */
@@ -133,3 +133,15 @@ img,.hero-visual .car,.tech-visual img,.about-img img,.car-hero-img img,.cta-img
 .story-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:32px}
 @media (max-width:640px){.story{padding:64px 0}}
 .story .wrap>p+p{margin-top:10px}
+
+/* Tin tức dạng danh sách ngang */
+.nl{background:var(--bg);padding:72px 0}
+.nl .wrap{display:flex;flex-direction:column;gap:40px}
+.nl-item{display:grid;grid-template-columns:minmax(0,480px) 1fr;gap:40px;align-items:start;padding-bottom:40px;border-bottom:1px solid var(--line,#e5e5e5)}
+.nl-item:last-child{border-bottom:0;padding-bottom:0}
+.nl-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eee}
+.nl-img img{object-fit:cover}
+.nl-body time{font-size:14px;font-weight:600;color:var(--red)}
+.nl-body h2{margin-top:8px;font-size:clamp(22px,2.2vw,30px);font-weight:800;line-height:1.2;letter-spacing:-.02em}
+.nl-body p{margin-top:12px;font-size:16px;line-height:1.65;color:var(--text-muted)}
+@media (max-width:800px){.nl{padding:48px 0}.nl-item{grid-template-columns:1fr;gap:20px}}

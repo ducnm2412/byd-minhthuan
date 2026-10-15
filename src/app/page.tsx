@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import Hero from "@/components/Hero";
+import HeroStudio from "@/components/HeroStudio";
+import Showcase from "@/components/Showcase";
 import TestDriveForm from "@/components/TestDriveForm";
 import Stats from "@/components/Stats";
 import Cars from "@/components/Cars";
-import Testimonials from "@/components/Testimonials";
 import CtaBand from "@/components/CtaBand";
 import { TECH, SHOWROOM, DELIVERY, GALLERY } from "@/data/home";
 import { POSTS } from "@/data/news";
@@ -13,8 +13,9 @@ import { SITE } from "@/data/site";
 export default function Page() {
   return (
     <div className="v2">
-      <Hero />
+      <HeroStudio />
       <TestDriveForm />
+      <Showcase />
 
       <section className="v2-sec v2-white">
         <div className="wrap">
@@ -37,7 +38,7 @@ export default function Page() {
       <Cars />
 
       <section className="v2-banner">
-        <Image src="/images/fb/036.jpg" alt="" fill sizes="100vw" />
+        <Image src="/images/fb/036.jpg" alt="" fill sizes="100vw" quality={90} />
         <div className="wrap">
           <h2>Lái thử trên chính cung đường bạn đi mỗi ngày</h2>
           <p>Đặt lịch, xe được đưa đến tận nhà hoặc cơ quan trong nội thành Pleiku. Tư vấn viên đi cùng để bạn thử đủ chế độ điện, hybrid và hỗ trợ lái.</p>
@@ -77,7 +78,6 @@ export default function Page() {
         </div>
       </section>
 
-      <Testimonials />
 
       <section className="v2-sec v2-white" id="thu-vien">
         <div className="wrap">

@@ -5,6 +5,10 @@ import { notFound } from "next/navigation";
 import { CARS, fmtKm, type Car } from "@/data/cars";
 import { STORIES, type Story } from "@/data/stories";
 import ColorPicker from "@/components/ColorPicker";
+import NaturalImage from "@/components/NaturalImage";
+
+/* Ảnh gốc lớn từ fanpage cho xe chưa có nội dung riêng (ảnh thẻ xe chỉ rộng 900px, phóng to sẽ mờ). */
+const BIG: Record<string, string> = { seal5: "/images/fb/046.jpg", dolphin: "/images/fb/075.jpg", m6: "/images/fb/001.jpg", m9: "/images/fb/021.jpg" };
 
 export function generateStaticParams() { return CARS.map((c) => ({ id: c.id })); }
 
@@ -22,7 +26,7 @@ export async function generateMetadata({ params }: PageProps<"/dong-xe/[id]">): 
 /* Bản rút gọn cho xe chưa có nội dung riêng: dựng từ thông số chung. */
 function fallback(c: Car): Story {
   const ev = c.cat.includes("ev");
-  const img = c.img ?? "/images/grille.jpg";
+  const img = BIG[c.id] ?? c.img ?? "/images/grille.jpg";
   return {
     hero: img,
     stats: [
@@ -58,7 +62,7 @@ export default async function Page({ params }: PageProps<"/dong-xe/[id]">) {
   return (
     <div className="v2">
       <section className="cd-hero">
-        <Image src={s.hero} alt={c.name} fill priority sizes="100vw" />
+        <NaturalImage src={s.hero} alt={c.name} priority maxH="82vh" />
         <h1>{title}</h1>
       </section>
 
@@ -74,25 +78,25 @@ export default async function Page({ params }: PageProps<"/dong-xe/[id]">) {
         if (b.kind === "intro") return (
           <section key={b.title} className="cd-block v2-grey">
             <div className="wrap">{head}</div>
-            <div className="cd-full"><Image src={b.img} alt={b.title} width={1600} height={1000} sizes="100vw" /></div>
+            <div className="cd-full"><NaturalImage src={b.img} alt={b.title} maxH="86vh" /></div>
             <div className="v2-btns"><Link className="obtn" href={`/lai-thu?xe=${c.id}`}>Đăng ký lái thử</Link><a className="obtn" href="#thong-so">Thông số kỹ thuật</a></div>
           </section>
         );
         if (b.kind === "overlay") return (
           <section key={b.title} className="cd-overlay">
-            <Image src={b.img} alt="" fill sizes="100vw" />
+            <NaturalImage src={b.img} alt={b.title} maxH="92vh" />
             <div className="wrap">{head}</div>
           </section>
         );
         if (b.kind === "plain") return (
           <section key={b.title} className="cd-block v2-white cd-plain">
             <div className="wrap">{head}</div>
-            <div className="cd-full"><Image src={b.img} alt={b.title} width={1600} height={1000} sizes="100vw" /></div>
+            <div className="cd-full"><NaturalImage src={b.img} alt={b.title} maxH="92vh" /></div>
           </section>
         );
         return (
           <section key={b.title} className="cd-block v2-grey cd-poster">
-            <div className="wrap">{head}<Image src={b.img} alt={b.title} width={900} height={1125} sizes="(max-width:600px) 90vw, 400px" /></div>
+            <div className="wrap">{head}<Image src={b.img} alt={b.title} width={900} height={1125} sizes="(max-width:600px) 90vw, 480px" /></div>
           </section>
         );
       })}
@@ -111,7 +115,7 @@ export default async function Page({ params }: PageProps<"/dong-xe/[id]">) {
       </section>
 
       <section className="cd-banner">
-        <Image src={s.banner} alt="" fill sizes="100vw" />
+        <NaturalImage src={s.banner} alt="" maxH="80vh" />
         <div className="wrap">
           <h2>2026 {title}</h2>
           <div className="v2-btns left">

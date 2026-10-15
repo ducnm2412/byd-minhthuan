@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import { Be_Vietnam_Pro, Lexend_Exa, Saira_Semi_Condensed } from "next/font/google";
 import "./globals.css";
 import "./pages.css";
 import "./v2.css";
+import "./studio.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
@@ -10,6 +11,8 @@ import Toast from "@/components/Toast";
 import Motion from "@/components/Motion";
 import Lightbox from "@/components/Lightbox";
 
+const display = Saira_Semi_Condensed({ subsets: ["latin", "vietnamese"], weight: ["600", "700", "800"], display: "swap", variable: "--font-display" });
+const wide = Lexend_Exa({ subsets: ["latin", "vietnamese"], weight: ["700", "800"], display: "swap", variable: "--font-wide" });
 const font = Be_Vietnam_Pro({ subsets: ["latin", "vietnamese"], weight: ["400", "500", "600", "700", "800"], display: "swap", variable: "--font-bvp" });
 
 export const metadata: Metadata = {
@@ -21,7 +24,7 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, view
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={font.variable}>
+    <html lang="vi" className={`${font.variable} ${display.variable} ${wide.variable}`}>
       <body>
         <Nav />
         <main id="top">{children}</main>

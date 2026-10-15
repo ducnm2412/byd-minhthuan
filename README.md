@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BYD Thuận Minh Gia Lai
 
-## Getting Started
-
-First, run the development server:
+Website đại lý BYD Thuận Minh Gia Lai (662A Lê Duẩn, Pleiku). Next.js 16 (App Router) + React 19.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Cấu trúc thư mục
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/                 Các trang (App Router)
+    page.tsx           Trang chủ
+    gioi-thieu/  dong-xe/[id]/  so-sanh/  tin-tuc/  lai-thu/
+    bao-gia/  tra-gop/  lien-he/  dich-vu/   (không có trên menu, vẫn truy cập được)
+    globals.css        Biến màu, layout chung, các khối cơ bản
+    pages.css          Trang con (page hero, story, tin tức…)
+    v2.css             Các section trang chủ
+    studio.css         Hero studio + Showcase đổi màu
+  components/          Component giao diện (HeroStudio, Showcase, Nav, Footer…)
+  data/                Nội dung: xe (cars.ts), trang chủ, tin tức, thông tin đại lý (site.ts)
+  lib/                 Tiện ích (đọc kích thước ảnh)
+public/images/
+  hero/                Ảnh xe tách nền cho hero (thay ảnh: giữ nguyên tên file)
+  cut/                 4 màu Sealion 5 cho Showcase
+  fb/                  Ảnh thư viện lấy từ Facebook đại lý
+  *.jpg                Ảnh thẻ xe, banner, tin tức
+assets/                KHÔNG được deploy
+  facebook-raw/        Ảnh gốc tải từ Facebook
+  anh-can-lam-net/     Bản sao các ảnh còn mờ, cần làm nét rồi chép đè vào public/
+docs/reference/        Ảnh mẫu thiết kế, bản chụp tham khảo
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Sửa số điện thoại, địa chỉ, link Facebook/Zalo/Maps tại `src/data/site.ts`.
